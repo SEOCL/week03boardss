@@ -13,7 +13,7 @@ router.post('/boards', async(req, res)=> {
 
     await Boards.create({boardId, title, Nickname, password, contents, date})
 
-    res.send({result: "success"})
+    res.send({result: "작성 완료!"})
 })
 
 router.get('/board', async(req, res)=> {
@@ -46,7 +46,7 @@ router.post("/board/:boardId", async(req, res)=>{
 
         if(isBoardInDetail.length > 0){
             await Boards.updateOne({boardId}, {$set: {title, Nickname, contents}})
-            res.send({result: "success"})
+            res.send({result: "작성 완료!"})
         }
         else{
             res.send({result:"비밀번호가 틀렸습니다."})
@@ -67,7 +67,7 @@ router.post("/board/:boardId/delete", async(req, res)=>{
 
         if(isBoardInDetail.length > 0){
             await Boards.deleteOne({boardId})
-            res.send({result: "success"})
+            res.send({result: "작성 완료!"})
         }
         else{
             res.send({result:"비밀번호가 틀렸습니다."})

@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta Nickname="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"
@@ -28,12 +28,15 @@
                     'date': date
                 },
                 success: function (response) {
-                    if (response["result"] == "success") {
+                    if (response['result'] == '작성 완료!') {
                         window.location.href = "/search"
                     }
                 }
             });
         }
+        // 작성 페이지를 메인으로 한다. 이 웹 프론트에서 ajax를 통해 서버와 주고 받기를 한다. Date 를 이용해서 현재 시간 표시 및 변수를 차례대로 선언. 
+        // 혹시 모르니 콘솔로 찍어서 출력.
+        // 작성이니까 타입은 post. 글쓰기 버튼을 누르고 '작성완료' 출력이 웹에 떴을 때, 조회 게시판으로 이동한다.
     </script>
 </head>
 
@@ -87,10 +90,10 @@
             <div class="field is-grouped">
 
                 <div class="control">
-                    <button class="button is-link" onclick="writes()">Write</button>
+                    <button class="button is-link" onclick="writes()">글쓰기</button>
                 </div>
             </div>
-
+            <!-- 각 항목에 bootstrap 사이트에서 가져온 형태를 적용시킨다. button인 글쓰기를 onclick으로 적용 -->
         </div>
     </section>
 

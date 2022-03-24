@@ -55,7 +55,9 @@
                             <div class="media-content">
                                 <div class="content">
                                 <p>
-                                    <strong>${boards[i]["Nickname"]}</strong> <small>${boards[i]["title"]}</small> <small>${boards[i]["date"]}</small>
+                                    <strong>${boards[i]["Nickname"]}</strong> 
+                                    <small>${boards[i]["title"]}</small> 
+                                    <small>${boards[i]["date"]}</small>
                                     <br>
                                     ${boards[i]["contents"]}
                                 </p>
@@ -88,6 +90,9 @@
                 }
             })
         }
+    //상세 게시판 조회 ajax. 가져오는 거니까 타입은 GET. MAIN에서 작성했던 걸 데이터 -> 서버로 가져와서 웹에 띄운다.
+    // html temp =`` 로 웹에 보여준다.  작성자명, 제목, 내용, 작성한 시각 보여주기. 이미지까지 보이는 bootstra 적용.
+    //각 항목에 따른 길이만큼의 반복으로 점점 커지는 게시글 횟수. 
     </script>
 </head>
 
@@ -95,7 +100,7 @@
     <section class="hero is-info">
         <div class="hero-body">
           <p class="title">
-            Search
+            게시글 목록
           </p>
         </div>
       </section>

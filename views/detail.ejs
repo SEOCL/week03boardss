@@ -27,7 +27,7 @@
                     let template_html = `
                     
                     <div class="field">
-                        <label class="label">UserNickname</label>
+                        <label class="label">작성자명</label>
                         <div class="control has-icons-left has-icons-right">
                             <input id="Nickname" class="input is-success" type="text" placeholder="Text input" value="${boardDetail['Nickname']}">
                             <span class="icon is-small is-left">
@@ -40,19 +40,19 @@
                         <p class="help is-success">This userNickname is available</p>
                     </div>
                     <div class="field">
-                        <label class="label">Password</label>
+                        <label class="label">비밀번호</label>
                         <div class="control">
-                            <input id="psd" class="input" type="password" placeholder="Text input">
+                            <input id="pwd" class="input" type="password" placeholder="Text input">
                         </div>
                     </div>
                     <div class="field">
-                        <label class="label">Title<label>
+                        <label class="label">제목<label>
                         <div class="control">
                             <input id="title" class="input" type="text" placeholder="Text input" value="${boardDetail['title']}">
                         </div>
                     </div>
                     <div class="field">
-                        <label class="label">Message</label>
+                        <label class="label">내용</label>
                         <div class="control">
                             <textarea id="contents" class="textarea" placeholder="Textarea">${boardDetail["contents"]}</textarea>
                         </div>
@@ -69,11 +69,14 @@
                 }
             })
         }
+        //수정 페이지 들어갔을 때, 해당 게시물의 데이터를 받아오기. 타입은 GET.
+        //
+
         function amends() {
             let title = $('#title').val();
             let Nickname = $('#Nickname').val();
             let contents = $('#contents').val();
-            let password = $('#psd').val();
+            let password = $('#pwd').val();
             $.ajax({
                 type: "POST",
                 url: `/api/board/${boardId}`,
@@ -86,7 +89,7 @@
                 success: function (response) {
                     console.log(response['result'])
                     alert(response['result'])
-                    if (response['result'] == 'success') {
+                    if (response['result'] == '작성 완료!') {
                         window.location.href = "/search"
                     }
                 }
@@ -96,7 +99,7 @@
             let title = $('#title').val();
             let Nickname = $('#Nickname').val();
             let contents = $('#contents').val();
-            let password = $('#psd').val();
+            let password = $('#pwd').val();
             $.ajax({
                 type: "POST",
                 url: `/api/board/${boardId}/delete`,
@@ -109,7 +112,7 @@
                 success: function (response) {
                     console.log(response['result'])
                     alert(response['result'])
-                    if (response['result'] == 'success') {
+                    if (response['result'] == '작성 완료!') {
                         window.location.href = "/search"
                     }
                 }
@@ -122,7 +125,7 @@
     <section class="hero is-success">
         <div class="hero-body">
           <p class="title">
-            Detail
+            수정 
           </p>
         </div>
       </section>
