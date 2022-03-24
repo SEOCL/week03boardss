@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta Nickname="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"
@@ -13,18 +13,18 @@
         function writes() {
             let date = new Date();
             let title = $('#title').val();
-            let name = $('#name').val();
+            let Nickname = $('#Nickname').val();
             let password = $('#password').val();
-            let memo = $('#memo').val();
-            console.log(title, name, password, memo, date)
+            let contents = $('#contents').val();
+            console.log(title, Nickname, password, contents, date)
             $.ajax({
                 type: "POST",
                 url: `/api/boards`,
                 data: {
                     'title': title,
-                    'name': name,
+                    'Nickname': Nickname,
                     'password': password,
-                    'memo': memo,
+                    'contents': contents,
                     'date': date
                 },
                 success: function (response) {
@@ -51,7 +51,7 @@
             <div class="field">
                 <label class="label">작성자명</label>
                 <div class="control has-icons-left has-icons-right">
-                    <input id="name" class="input is-success" type="text" placeholder="Text input">
+                    <input id="Nickname" class="input is-success" type="text" placeholder="Text input">
                     <span class="icon is-small is-left">
                         <i class="fas fa-user"></i>
                     </span>
@@ -59,7 +59,7 @@
                         <i class="fas fa-check"></i>
                     </span>
                 </div>
-                <p class="help is-success">This username is available</p>
+                <p class="help is-success">This userNickname is available</p>
             </div>
 
             <div class="field">
@@ -80,7 +80,7 @@
             <div class="field">
                 <label class="label">내용</label>
                 <div class="control">
-                    <textarea id="memo" class="textarea" placeholder="Textarea"></textarea>
+                    <textarea id="contents" class="textarea" placeholder="Textarea"></textarea>
                 </div>
             </div>
 

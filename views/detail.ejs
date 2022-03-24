@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta Nickname="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"
@@ -27,9 +27,9 @@
                     let template_html = `
                     
                     <div class="field">
-                        <label class="label">Username</label>
+                        <label class="label">UserNickname</label>
                         <div class="control has-icons-left has-icons-right">
-                            <input id="name" class="input is-success" type="text" placeholder="Text input" value="${boardDetail['name']}">
+                            <input id="Nickname" class="input is-success" type="text" placeholder="Text input" value="${boardDetail['Nickname']}">
                             <span class="icon is-small is-left">
                                 <i class="fas fa-user"></i>
                             </span>
@@ -37,7 +37,7 @@
                                 <i class="fas fa-check"></i>
                             </span>
                         </div>
-                        <p class="help is-success">This username is available</p>
+                        <p class="help is-success">This userNickname is available</p>
                     </div>
                     <div class="field">
                         <label class="label">Password</label>
@@ -54,7 +54,7 @@
                     <div class="field">
                         <label class="label">Message</label>
                         <div class="control">
-                            <textarea id="memo" class="textarea" placeholder="Textarea">${boardDetail["memo"]}</textarea>
+                            <textarea id="contents" class="textarea" placeholder="Textarea">${boardDetail["contents"]}</textarea>
                         </div>
                     </div>
                     <div class="field is-grouped">
@@ -71,16 +71,16 @@
         }
         function amends() {
             let title = $('#title').val();
-            let name = $('#name').val();
-            let memo = $('#memo').val();
+            let Nickname = $('#Nickname').val();
+            let contents = $('#contents').val();
             let password = $('#psd').val();
             $.ajax({
                 type: "POST",
                 url: `/api/board/${boardId}`,
                 data: {
                     'title': title,
-                    'name': name,
-                    'memo': memo,
+                    'Nickname': Nickname,
+                    'contents': contents,
                     'password': password
                 },
                 success: function (response) {
@@ -94,16 +94,16 @@
         }
         function deletes() {
             let title = $('#title').val();
-            let name = $('#name').val();
-            let memo = $('#memo').val();
+            let Nickname = $('#Nickname').val();
+            let contents = $('#contents').val();
             let password = $('#psd').val();
             $.ajax({
                 type: "POST",
                 url: `/api/board/${boardId}/delete`,
                 data: {
                     'title': title,
-                    'name': name,
-                    'memo': memo,
+                    'Nickname': Nickname,
+                    'contents': contents,
                     'password': password
                 },
                 success: function (response) {
